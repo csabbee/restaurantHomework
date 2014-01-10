@@ -20,12 +20,15 @@ public class Robot{
     }
 
     public void addOrder(Order order) {
+        System.out.println(order.toString()+" is added to the queue");
         orderQueue.add(order);
     }
 
     public void makeNextOrder() {
         if(orderQueue.size() > 0){
-            orderQueue.poll().getCashier().orderFinished();
+            Order order = orderQueue.poll(); 
+            System.out.println("preparing order: "+order.toString());
+            order.getCashier().orderFinished();
         }
     }
 }

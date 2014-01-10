@@ -24,6 +24,8 @@ public class Cashier {
     }
 
     public void finishOrder() {
+        System.out.println(toString()+" is adding order to the queue");
+        System.out.println("Adding order: "+order.toString()+" to the queue");
         Robot.getInstance().addOrder(order);
         //deleteOrder();
     }

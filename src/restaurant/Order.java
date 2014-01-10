@@ -23,6 +23,7 @@ public class Order {
     }
 
     public void setClient(Client client) {
+        System.out.println(client.toString()+" is set to "+toString());
         this.client = client;
     }
 

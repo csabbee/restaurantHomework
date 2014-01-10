@@ -31,9 +31,9 @@ public class Client implements Runnable{
             }
             cashier = restaurant.getCashier();
         }
+        System.out.println("My cashier is: "+cashier.toString());
         cashier.startOrdering(this);
         ordering(cashier);
-        
     }
 
     private void ordering(Cashier cashier) {
@@ -45,7 +45,7 @@ public class Client implements Runnable{
         }
         while(true){
             int rand = MyRandom.nextRandom(100);
-            System.out.format(this.toString()+"' next move: %s%n", rand);
+            System.out.format(this.toString()+"'s next move: %s%n", rand);
             if(rand < 75){
                 int numberOfProducts = restaurant.getProducts().size();
                 int numberOfExtras = restaurant.getExtras().size();
@@ -72,7 +72,6 @@ public class Client implements Runnable{
                 cashier.deleteOrder();
                 restaurant.addCashier(cashier);
             }
-               
         }
     }
 
