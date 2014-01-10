@@ -37,6 +37,12 @@ public class Client implements Runnable{
     }
 
     private void ordering(Cashier cashier) {
+        try {
+            Thread.sleep(100);
+        } catch (InterruptedException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
         while(true){
             int rand = MyRandom.nextRandom(100);
             System.out.format(this.toString()+"' next move: %s%n", rand);
