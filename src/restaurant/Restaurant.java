@@ -8,9 +8,16 @@ import food.product.Product;
 
 public class Restaurant {
 
+    private static final Restaurant INSTANCE = new Restaurant();
     private List<Cashier> cashiers = new ArrayList<>();
     private List<Product> products = new ArrayList<>();
     private List<Extra> extras = new ArrayList<>();
+    
+    private Restaurant(){}
+    
+    public static Restaurant getInstance(){
+        return INSTANCE;
+    }
     
     public Cashier getCashier(){
         Cashier cashier = null;

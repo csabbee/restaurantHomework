@@ -12,7 +12,7 @@ import food.product.concrete.HotDog;
 public class Main {
 
     public static void main(String[] args) {
-        Restaurant restaurant = new Restaurant();
+        Restaurant restaurant = Restaurant.getInstance();
         int clients = 0;
         init(restaurant);
         while(clients != 10){
