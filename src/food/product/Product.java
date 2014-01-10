@@ -11,6 +11,9 @@ public abstract class Product {
     private List<Extra> extras = new ArrayList<>();
     
     public double getEffect() {
+        for (Extra extra : extras) {
+            effect += extra.effect(this, effect);
+        }
         return effect;
     }
     public void setEffect(double effect) {
