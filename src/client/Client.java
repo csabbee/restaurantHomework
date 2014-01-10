@@ -14,6 +14,7 @@ public class Client implements Runnable{
     
     public Client(Restaurant restaurant) {
         super();
+        happiness = 0.0;
         this.restaurant = restaurant;
         System.out.println("I am created");
     }
@@ -55,6 +56,7 @@ public class Client implements Runnable{
             } else 
             if(rand < 90) {
                 cashier.finishOrder();
+                restaurant.addCashier(cashier);
                 break;
             } else 
             if( rand < 95){
