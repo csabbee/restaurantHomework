@@ -27,4 +27,28 @@ public class Restaurant {
     public void addCashier(Cashier cashier){
         cashiers.add(cashier);
     }
+
+    public List<Product> getProducts() {
+        return new ArrayList<Product>(products);
+    }
+
+    public List<Extra> getExtras() {
+        return new ArrayList<Extra>(extras);
+    }
+
+    public Product getProduct(int index) {
+        return products.get(index);
+    }
+
+    public Extra getExtra(int index) {
+        return extras.get(index);
+    }
+    
+    public void addNewProduct(Product product){
+        products.add(product);
+    }
+    
+    public void addNewExtra(Extra extra){
+        extras.add(extra);
+    }
 }
