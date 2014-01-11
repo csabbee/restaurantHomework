@@ -8,7 +8,13 @@ import food.extra.Extra;
 public abstract class Product {
 
     private double effect;
+    private double price;
+    private boolean discount;
     private List<Extra> extras = new ArrayList<>();
+    
+    protected Product(double price){
+        this.price = price;
+    }
     
     public double getEffect() {
         for (Extra extra : extras) {
@@ -23,4 +29,17 @@ public abstract class Product {
     public void addExtra(Extra extra){
         extras.add(extra);
     }
+
+    public boolean isDiscount() {
+        return discount;
+    }
+
+    public void setDiscount() {
+        discount = true;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+    
 }
