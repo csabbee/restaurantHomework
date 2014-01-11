@@ -26,6 +26,7 @@ public class Main {
             Manager.getInstance().incrementCusotmerNumber();
             Robot.getInstance().makeNextOrder();
         }
+        System.out.println("Number of orders: " + Manager.getInstance().getNumberOfOrders());
     }
 
     
@@ -35,8 +36,8 @@ public class Main {
         restaurant.addCashier(new Cashier());
         restaurant.addNewExtra(new Ketchup());
         restaurant.addNewExtra(new Mustard());
-        restaurant.addNewProduct(new Chips());
-        restaurant.addNewProduct(new HotDog());
+        restaurant.addNewProduct(new Chips(350d));
+        restaurant.addNewProduct(new HotDog(450d));
     }
 
 }
