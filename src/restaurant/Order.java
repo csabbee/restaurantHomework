@@ -9,6 +9,7 @@ import food.product.Product;
 public class Order {
 
     private List<Product> orderedProducts;
+    private double tab;
     private Client client;
     private Cashier cashier;
 
@@ -38,5 +39,13 @@ public class Order {
 
     public List<Product> getOrderedProducts() {
         return new ArrayList<>(orderedProducts);
+    }
+
+    public double getTab() {
+        return tab;
+    }
+
+    public void addToTab(double tabItem) {
+        this.tab += tabItem;
     }
 }
