@@ -12,9 +12,10 @@ public class Order {
     private Client client;
     private Cashier cashier;
 
-    public Order(Cashier cashier) {
+    public Order(Cashier cashier, Client client) {
         super();
         orderedProducts = new ArrayList<>();
+        this.client = client;
         this.cashier = cashier;
     }
 
