@@ -1,5 +1,6 @@
 package main;
 import restaurant.Cashier;
+import restaurant.Manager;
 import restaurant.Restaurant;
 import restaurant.Robot;
 import client.Client;
@@ -13,9 +14,8 @@ public class Main {
 
     public static void main(String[] args) {
         Restaurant restaurant = Restaurant.getInstance();
-        int clients = 0;
         init(restaurant);
-        while(clients != 10){
+        while(Manager.getInstance().getCostumerNumber() != 10){
             Thread t = new Thread(new Client(restaurant));
             t.start();
             try {
@@ -23,7 +23,7 @@ public class Main {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            clients++;
+            Manager.getInstance().incrementCusotmerNumber();
             Robot.getInstance().makeNextOrder();
         }
     }
