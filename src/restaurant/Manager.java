@@ -1,8 +1,11 @@
 package restaurant;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class Manager {
     private static final Manager INSTANCE;
     private int costumerNumber;
+    private AtomicInteger numberOfOrders = new AtomicInteger();
     
     static {
         INSTANCE = new Manager();
@@ -16,15 +19,19 @@ public class Manager {
         return INSTANCE;
     }
 
-    public static void sfoo() {
-        
-    }
-
     public int getCostumerNumber() {
         return costumerNumber;
     }
     
     public void incrementCusotmerNumber(){
         costumerNumber++;
+    }
+
+    public AtomicInteger getNumberOfOrders() {
+        return numberOfOrders;
+    }
+    
+    public void incrementNumberOfOrders(){
+        numberOfOrders.incrementAndGet();
     }
 }
