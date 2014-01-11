@@ -40,7 +40,6 @@ public class Client implements Runnable{
         try {
             Thread.sleep(100);
         } catch (InterruptedException e1) {
-            // TODO Auto-generated catch block
             e1.printStackTrace();
         }
         while(true){
@@ -56,7 +55,6 @@ public class Client implements Runnable{
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {
-                    // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
             } else 
@@ -66,11 +64,13 @@ public class Client implements Runnable{
                 break;
             } else 
             if( rand < 95){
-                
+                System.out.println("Yay I'm getting a discount!");
+                cashier.getDiscount();
             } else
             if(rand < 100){
                 cashier.deleteOrder();
                 restaurant.addCashier(cashier);
+                System.out.println("ANGRY");
             }
         }
     }
