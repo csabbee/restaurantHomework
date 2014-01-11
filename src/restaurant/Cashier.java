@@ -7,11 +7,9 @@ public class Cashier {
 
     private Order order;
     public Cashier(){
-        order = new Order(this);
     }
     
     public void deleteOrder() {
-        order = new Order(this);
     }
 
     public void modifyOrder(Product product){
@@ -20,14 +18,13 @@ public class Cashier {
 
     public void startOrdering(Client client) {
         System.out.format("%s is here%n", client.toString());
-        order.setClient(client);
+        order = new Order(this, client);
     }
 
     public void finishOrder() {
         System.out.println(toString()+" is adding order to the queue");
         System.out.println("Adding order: "+order.toString()+" to the queue");
         Robot.getInstance().addOrder(order);
-        //deleteOrder();
     }
 
     public void orderFinished() {
