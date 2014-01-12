@@ -68,7 +68,6 @@ public class Client implements Runnable{
                 cashier.getDiscount();
             } else
             if(rand < 100){
-                cashier.deleteOrder();
                 restaurant.addCashier(cashier);
                 System.out.println("ANGRY");
             }

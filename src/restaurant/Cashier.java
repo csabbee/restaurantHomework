@@ -8,11 +8,6 @@ public class Cashier {
     private static final double DISCOUNT = 0.9;
     private Order order;
     private boolean discount;
-    public Cashier(){
-    }
-    
-    public void deleteOrder() {
-    }
 
     public void modifyOrder(Product product){
         if(discount){
