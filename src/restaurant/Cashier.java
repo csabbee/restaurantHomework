@@ -9,6 +9,13 @@ public class Cashier {
     private Order order;
     private boolean discount;
 
+    public Cashier(Order order) {
+        this.order = order;
+    }
+
+    public Cashier() {
+    }
+
     public void modifyOrder(Product product){
         if(discount){
             order.addToTab(product.getPrice()*DISCOUNT);
