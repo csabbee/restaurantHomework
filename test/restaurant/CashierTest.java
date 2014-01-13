@@ -32,17 +32,58 @@ public class CashierTest {
     @Test
     public void testModifyOrderWhenThereIsDiscount(){
         //GIVEN
+        order = new Order(underTest, client);
+        underTest = new Cashier(order);
         underTest.getDiscount();
         //WHEN
+        EasyMock.expect(product.getPrice()).andReturn(100d);
+        EasyMock.expectLastCall();
+        EasyMock.replay(product);
         underTest.modifyOrder(product);
-        EasyMock.expect(product.getPrice()).andReturn(100d);
-        EasyMock.expectLastCall();
-        EasyMock.expect(product.getPrice()).andReturn(100d);
-        EasyMock.expectLastCall();
-        EasyMock.replay(order, product, order);
         double expected = 90d;
         double actual = order.getTab();
         //THEN
         Assert.assertEquals(expected, actual, 0.0);
+    }
+    
+    @Test
+    public void testModifyOrderWhenThereIsNoDiscount(){
+        //GIVEN
+        order = new Order(underTest, client);
+        underTest = new Cashier(order);
+        //WHEN
+        EasyMock.expect(product.getPrice()).andReturn(100d);
+        EasyMock.expectLastCall();
+        EasyMock.replay(product);
+        underTest.modifyOrder(product);
+        double expected = 100d;
+        double actual = order.getTab();
+        //THEN
+        Assert.assertEquals(expected, actual, 0.0);
+    }
+    
+    @Test
+    public void testStartOrdering(){
+        //GIVEN as in setUp
+        underTest.startOrdering(client);
+    }
+    
+    @Test
+    public void testFinishOrder(){
+        //GIVEN as in setUp
+        underTest.finishOrder();
+    }
+    
+    @Test
+    public void testOrderFinished(){
+        //GIVEN
+        //WHEN
+        EasyMock.expect(order.getClient()).andReturn(client);
+        EasyMock.expectLastCall();
+        EasyMock.replay(order);
+        System.out.println(order.getClient());
+        underTest.orderFinished();
+        //THEN
+        EasyMock.verify(order);
     }
 }
