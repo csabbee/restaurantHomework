@@ -76,14 +76,14 @@ public class CashierTest {
     
     @Test
     public void testOrderFinished(){
-        //GIVEN
+        //GIVEN as in setUp
         //WHEN
         EasyMock.expect(order.getClient()).andReturn(client);
-        EasyMock.expectLastCall();
+        EasyMock.expectLastCall().anyTimes();
         EasyMock.replay(order);
-        System.out.println(order.getClient());
+        product.addExtra(extra);
         underTest.orderFinished();
         //THEN
-        EasyMock.verify(order);
+        EasyMock.verify(order, client);
     }
 }
